@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Maaf Ya ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      max-width: 400px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: white;
+      color: #ff4b7d;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ffe0e6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Maaf Ya ❤️</h1>
+    <p>
+      Aku sadar aku udah bikin kamu kecewa.<br><br>
+      Aku benar-benar minta maaf atas semua kesalahan yang aku lakukan.<br>
+      Aku tidak bermaksud nyakitin kamu and aku akan berusaha jadi lebih baik lagi.<br><br>
+      Kamu itu sangat berarti buat aku and aku tidak ingin kehilangan kamu.<br>
+      Aku gapengen kita pisah, Maafin aku ya sayang.
+    </p>
+
+    <button onclick="showMessage()">Klik ini ya</button>
+    <p id="extraMessage" style="display:none; margin-top:20px;">
+      I LOVE U SO MUCHHH❤️
+    </p>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("extraMessage").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
