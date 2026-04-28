@@ -1,78 +1,144 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Maaf Ya ❤️</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #ff758c, #ff7eb3);
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      color: white;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<title>Maaf Ya ❤️</title>
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+}
 
-    .card {
-      background: rgba(0, 0, 0, 0.4);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-      max-width: 400px;
-    }
+/* Card */
+.card {
+  background: rgba(0,0,0,0.5);
+  padding: 40px;
+  border-radius: 25px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+  max-width: 400px;
+  animation: fadeIn 2s ease;
+}
 
-    h1 {
-      margin-bottom: 20px;
-    }
+h1 {
+  font-size: 28px;
+}
 
-    p {
-      font-size: 16px;
-      line-height: 1.6;
-    }
+p {
+  line-height: 1.6;
+}
 
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      background: white;
-      color: #ff4b7d;
-      font-weight: bold;
-      cursor: pointer;
-    }
+/* Button */
+.btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
 
-    button:hover {
-      background: #ffe0e6;
-    }
-  </style>
+.yes {
+  background: #fff;
+  color: #ff4b7d;
+}
+
+.no {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  position: absolute;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+/* Animasi */
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+/* Love falling */
+.heart {
+  position: absolute;
+  color: pink;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh); }
+  100% { transform: translateY(110vh); }
+}
+</style>
 </head>
+
 <body>
 
-  <div class="card">
-    <h1>Maaf Ya ❤️</h1>
-    <p>
-      Aku sadar aku udah bikin kamu kecewa.<br><br>
-      Aku benar-benar minta maaf atas semua kesalahan yang aku lakukan.<br>
-      Aku tidak bermaksud nyakitin kamu and aku akan berusaha jadi lebih baik lagi.<br><br>
-      Kamu itu sangat berarti buat aku and aku tidak ingin kehilangan kamu.<br>
-      Aku gapengen kita pisah, Maafin aku ya sayang.
-    </p>
+<!-- Musik -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
 
-    <button onclick="showMessage()">Klik ini ya</button>
-    <p id="extraMessage" style="display:none; margin-top:20px;">
-      I LOVE U SO MUCHHH❤️
-    </p>
-  </div>
+<div class="card">
+  <h1>Maaf Ya ❤️</h1>
+  <p>
+    Aku tahu aku salah dan sudah membuat kamu kecewa.<br><br>
+    Aku benar-benar minta maaf dari hati yang paling dalam.<br>
+    Aku nggak mau kehilangan kamu 😔    <br>
+    Aku gamau kita pisah.<br>
+    Kamu mau maafin aku kan?
+  </p>
 
-  <script>
-    function showMessage() {
-      document.getElementById("extraMessage").style.display = "block";
-    }
-  </script>
+  <button class="btn yes" onclick="maaf()">Maafin ❤️</button>
+  <button class="btn no" id="noBtn">Nggak 😢</button>
+
+  <p id="result" style="margin-top:15px;"></p>
+</div>
+
+<script>
+function maaf() {
+  document.getElementById("result").innerHTML = "Makasih ya ❤️ Aku janji bakal lebih baik!";
+}
+
+/* Tombol kabur */
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * window.innerWidth;
+  const y = Math.random() * window.innerHeight;
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+/* Love animation */
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 10 + "px";
+  heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
 
 </body>
 </html>
